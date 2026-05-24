@@ -1,0 +1,7 @@
+flask
+tensorflow
+mysql-connector-python
+werkzeug
+numpy
+pandas
+scikit-learn
