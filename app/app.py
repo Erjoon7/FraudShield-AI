@@ -50,3 +50,18 @@ def dashboard():
     if "user_id" not in session:
         return redirect(url_for("login"))
     return render_template("dashboard.html")
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    if "user_id" not in session:
+        return redirect(url_for("login"))
+
+    amount = float(request.form["amount"])
+    time = int(request.form["time"])
+
+    from model import get_prediction
+    result, probability = get_prediction(amount, time)
+
+    save_prediction(session["user_id"], amount, result, probability)
+
+    return render_template("result.html", result=result, probability=probability, amount=amount)
