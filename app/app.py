@@ -39,3 +39,8 @@ def login():
         return redirect(url_for("dashboard"))
 
     return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
