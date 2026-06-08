@@ -33,3 +33,13 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
+
+        <div class="card result-card {{ result }}">
+            <div class="result-badge">
+                {% if result == 'fraud' %}
+                    <span class="badge badge-fraud">⚠ FRAUD DETECTED</span>
+                {% else %}
+                    <span class="badge badge-safe">✔ TRANSACTION SAFE</span>
+                {% endif %}
+            </div>
+        </div>
