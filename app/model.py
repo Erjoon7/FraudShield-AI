@@ -12,3 +12,10 @@ def prepare_input(amount: float, time: int) -> np.ndarray:
     features.append(float(amount))
     features.append(float(time))
     return np.array([features])  # shape (1, 30)
+
+
+def get_prediction(amount: float, time: int) -> tuple:
+    input_data = prepare_input(amount, time)
+    probability = float(model.predict(input_data)[0][0])
+    result = 'fraud' if probability >= 0.5 else 'safe'
+    return result, round(probability, 4)
