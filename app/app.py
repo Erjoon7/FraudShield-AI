@@ -65,3 +65,10 @@ def predict():
     save_prediction(session["user_id"], amount, result, probability)
 
     return render_template("result.html", result=result, probability=probability, amount=amount)
+
+@app.route("/")
+def index():
+    return redirect(url_for("login"))
+
+if __name__ == "__main__":
+    app.run(debug=True)
