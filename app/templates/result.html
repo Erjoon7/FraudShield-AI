@@ -79,3 +79,30 @@
         </div>
             </div>
         </div>
+
+        <div class="card recommendations-card">
+            <h3>Recommendations</h3>
+            {% if result == 'fraud' %}
+                <ul class="recommendations-list fraud-list">
+                    <li>🚨 Block this transaction immediately.</li>
+                    <li>📞 Contact your bank or card issuer.</li>
+                    <li>🔒 Change your card PIN and online passwords.</li>
+                    <li>📋 Review recent transactions for other suspicious activity.</li>
+                </ul>
+            {% else %}
+                <ul class="recommendations-list safe-list">
+                    <li>✅ Transaction appears legitimate.</li>
+                    <li>👁️ Continue monitoring your account regularly.</li>
+                    <li>🔔 Enable transaction notifications for added security.</li>
+                </ul>
+            {% endif %}
+        </div>
+
+        <div class="back-btn-container">
+            <a href="/dashboard" class="btn-back">← Analyze Another Transaction</a>
+        </div>
+
+    </main>
+
+</body>
+</html>
