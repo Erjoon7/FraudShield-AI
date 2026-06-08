@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield AI — Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="shield-icon">🛡️</span>
+            <span>FraudShield <strong>AI</strong></span>
+        </div>
+        <div class="nav-user">
+            <span>Welcome, <strong>{{ session['username'] }}</strong></span>
+            <a href="/logout" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+
+        <div class="dashboard-header">
+            <h1>Transaction Analyzer</h1>
+            <p>Enter the transaction details below to check for potential fraud.</p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="card">
+            <form action="/predict" method="POST">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="amount">Transaction Amount ($)</label>
+                        <input
+                            type="number"
+                            id="amount"
+                            name="amount"
+                            placeholder="e.g. 250.00"
+                            step="0.01"
+                            min="0.01"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Hour of Transaction (0–23)</label>
+                        <input
+                            type="number"
+                            id="time"
+                            name="time"
+                            placeholder="e.g. 14"
+                            min="0"
+                            max="23"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="merchant_category">Merchant Category</label>
+                        <select id="merchant_category" name="merchant_category" required>
+                            <option value="" disabled selected>Select category</option>
+                            <option value="retail">Retail</option>
+                            <option value="food">Food & Dining</option>
+                            <option value="travel">Travel</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="online">Online Purchase</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Transaction Location</label>
+                        <select id="location" name="location" required>
+                            <option value="" disabled selected>Select location</option>
+                            <option value="domestic">Domestic</option>
+                            <option value="international">International</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card_present">Card Present</label>
+                        <select id="card_present" name="card_present" required>
+                            <option value="" disabled selected>Select type</option>
+                            <option value="1">Yes (Physical)</option>
+                            <option value="0">No (Online / Contactless)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="previous_fraud">Previous Fraud on Account</label>
+                        <select id="previous_fraud" name="previous_fraud" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="btn-analyze">
+                        <span>Analyze Transaction</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="info-icon">⚡</div>
+                <h3>Instant Analysis</h3>
+                <p>Results returned in under a second using our trained AI model.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>All data is stored securely and tied to your account only.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">📊</div>
+                <h3>Probability Score</h3>
+                <p>Get an exact fraud probability score, not just a yes/no answer.</p>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
