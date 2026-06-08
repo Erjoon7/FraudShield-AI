@@ -7,3 +7,11 @@ def get_connection():
         password="rootdatabase!",
         database="fraudshield"
     )
+
+def create_user(username, password):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, password))
+    conn.commit()
+    cursor.close()
+    conn.close()
