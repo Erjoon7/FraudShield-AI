@@ -24,3 +24,14 @@ def get_user_by_username(username):
     cursor.close()
     conn.close()
     return user
+
+def save_prediction(user_id, amount, result, probability):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT INTO predictions (user_id, amount, result, probability) VALUES (%s, %s, %s, %s)",
+        (user_id, amount, result, probability)
+    )
+    conn.commit()
+    cursor.close()
+    conn.close()
