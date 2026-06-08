@@ -55,4 +55,27 @@
                     bar.style.width = bar.dataset.width + '%';
                 </script>
             </div>
+
+        <div class="card details-card">
+            <h3>Transaction Details</h3>
+            <table class="details-table">
+                <tr>
+                    <td>Amount</td>
+                    <td><strong>${{ amount }}</strong></td>
+                </tr>
+                <tr>
+                    <td>Hour</td>
+                    <td><strong>{{ time }}:00</strong></td>
+                </tr>
+                <tr>
+                    <td>Analyzed by</td>
+                    <td><strong>{{ session['username'] }}</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong>{{ result | upper }}</strong></td>
+                </tr>
+            </table>
+        </div>
+            </div>
         </div>
