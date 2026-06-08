@@ -42,4 +42,17 @@
                     <span class="badge badge-safe">✔ TRANSACTION SAFE</span>
                 {% endif %}
             </div>
+
+            <div class="probability-section">
+                <p class="probability-label">Fraud Probability Score</p>
+                <p class="probability-value">{{ (probability * 100) | round(2) }}%</p>
+                <div class="progress-bar">
+                    <div class="progress-fill {{ result }}" data-width="{{ (probability * 100) | round(2) }}">
+                    </div>
+                </div>
+                <script>
+                    const bar = document.querySelector('.progress-fill');
+                    bar.style.width = bar.dataset.width + '%';
+                </script>
+            </div>
         </div>
