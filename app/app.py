@@ -64,7 +64,7 @@ def predict():
 
     save_prediction(session["user_id"], amount, result, probability)
 
-    return render_template("result.html", result=result, probability=probability, amount=amount)
+    return render_template("result.html", result=result, probability=probability, amount=amount, time=time)
 
 @app.route("/")
 def index():
