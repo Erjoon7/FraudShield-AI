@@ -24,3 +24,48 @@ body {
     color: var(--text);
     min-height: 100vh;
 }
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary);
+    color: white;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.shield-icon {
+    font-size: 1.5rem;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.95rem;
+}
+
+.btn-logout {
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 6px 14px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.btn-logout:hover {
+    background-color: rgba(255,255,255,0.15);
+}
