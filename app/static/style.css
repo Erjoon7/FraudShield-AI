@@ -212,3 +212,80 @@ body {
 .btn-back:hover {
     background-color: #1a252f;
 }
+
+/* Dashboard Layout */
+.dashboard-container {
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.dashboard-header {
+    margin-bottom: 28px;
+}
+
+.dashboard-header h1 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.dashboard-header p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Card */
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+/* Info Cards */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.info-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    text-align: center;
+}
+
+.info-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.info-card h3 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
