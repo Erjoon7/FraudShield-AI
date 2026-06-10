@@ -8,9 +8,9 @@ model = load_model(MODEL_PATH)
 
 
 def prepare_input(amount: float, time: int) -> np.ndarray:
-    features = [0.0] * 28        # V1-V28 = 0
-    features.append(float(amount))
-    features.append(float(time))
+    features = [float(time)]     # Time (kolona e parë)
+    features += [0.0] * 28      # V1-V28 = 0
+    features.append(float(amount))  # Amount (kolona e fundit)
     return np.array([features])  # shape (1, 30)
 
 
