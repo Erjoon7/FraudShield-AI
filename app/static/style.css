@@ -387,3 +387,62 @@ body {
 .progress-fill.safe {
     background-color: var(--safe);
 }
+
+/* Details Table */
+.details-card h3,
+.recommendations-card h3 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.details-table td {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.details-table td:first-child {
+    color: var(--text-light);
+    width: 40%;
+}
+
+.details-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Recommendations */
+.recommendations-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.recommendations-list li {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    line-height: 1.5;
+}
+
+.fraud-list li {
+    background-color: #fdecea;
+    color: #922b21;
+}
+
+.safe-list li {
+    background-color: #eafaf1;
+    color: #1e8449;
+}
+
+.back-btn-container {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
