@@ -9,6 +9,7 @@ app.secret_key = "fraudshield-secret-key"
 def register():
     if request.method == "POST":
         username = request.form["username"]
+        email = request.form["email"]
         password = request.form["password"]
 
         if get_user_by_username(username):
@@ -16,7 +17,7 @@ def register():
             return redirect(url_for("register"))
 
         hashed = generate_password_hash(password)
-        create_user(username, hashed)
+        create_user(username, email, hashed)
         flash("Account created. Please log in.", "success")
         return redirect(url_for("login"))
 

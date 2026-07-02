@@ -8,10 +8,10 @@ def get_connection():
         database="fraudshield"
     )
 
-def create_user(username, password):
+def create_user(username, email, password):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, password))
+    cursor.execute("INSERT INTO users (username, email, password) VALUES (%s, %s, %s)", (username, email, password))
     conn.commit()
     cursor.close()
     conn.close()
