@@ -62,6 +62,7 @@ Modeli i trajnuar duhet të jetë te [models/best_model.h5](models/best_model.h5
 
 ```bash
 cd app
+venv\Scripts\activate
 python app.py
 ```
 
